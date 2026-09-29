@@ -3,69 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0c0a07" />
-    <meta name="description" content="Yuri Coimbra Finance — mesa global das melhores ações do mundo." />
+    <meta name="theme-color" content="#071018" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Yuri Coimbra" />
     <title>Yuri Coimbra Finance</title>
     <link rel="icon" href="logo-yc.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   </head>
   <body class="splash-on">
-    <div class="atmosphere" aria-hidden="true"></div>
-    <div class="splash" id="splash" role="dialog" aria-label="Yuri Coimbra Finance">
-      <div class="splash-logo" role="img" aria-label="Logo Yuri Coimbra Finance"></div>
-      <p class="splash-name">Yuri Coimbra</p>
-      <p class="splash-sub">Finance</p>
+    <div class="splash" id="splash">
+      <img class="splash-mark" src="logo-yc.svg" alt="" />
+      <p>Yuri Coimbra</p>
+      <em>Finance</em>
     </div>
-    <div class="app">
-      <aside class="rail" id="rail">
-        <div class="brand">
-          <div class="brand-logo" role="img" aria-label="Logo Yuri Coimbra Finance"></div>
-          <div><h1>Yuri Coimbra <em>Finance</em></h1></div>
-        </div>
-        <label class="search"><span>Buscar</span><input id="q" type="search" placeholder="Ticker, empresa ou tese" autocomplete="off" /></label>
-        <section class="filter-block"><h2>Praça</h2><div class="chips" id="regionFilters"></div></section>
-        <section class="filter-block"><h2>Setor</h2><div class="chips" id="sectorFilters"></div></section>
-        <section class="filter-block"><h2>Tese</h2><div class="chips" id="thesisFilters"></div></section>
-        <section class="filter-block"><h2>Porte</h2><div class="chips" id="capFilters"></div></section>
-        <section class="filter-block"><h2>Variação do dia</h2><div class="chips" id="moveFilters"></div></section>
-        <button type="button" class="ghost" id="resetFilters">Limpar filtros</button>
-        <p class="disclaimer">Acompanhamento. Não é recomendação de compra ou venda.</p>
-      </aside>
-      <main id="mesa">
-        <header class="top">
-          <div>
-            <p class="eyebrow" id="marketPulse">Abrindo mesa</p>
-            <h2 id="boardTitle">Yuri Coimbra Finance</h2>
-          </div>
-          <div class="top-tools">
-            <time id="clock">--:--</time>
-            <button type="button" class="ghost compact" id="toggleRail">Filtros</button>
-            <div class="view-switch">
-              <button type="button" class="on" id="viewTable">Tabela</button>
-              <button type="button" id="viewCards">Cards</button>
-            </div>
-            <button type="button" class="primary compact" id="refresh">Atualizar</button>
-          </div>
-        </header>
-        <section class="kpis" id="kpis"></section>
-        <section class="toolbar">
-          <p id="resultMeta">Carregando universo…</p>
-          <label>Ordenar
-            <select id="sort">
-              <option value="quality">Qualidade / tese</option>
-              <option value="changeDesc">Alta do dia</option>
-              <option value="changeAsc">Queda do dia</option>
-              <option value="capDesc">Maior valor de mercado</option>
-              <option value="peAsc">Menor P/L</option>
-              <option value="yieldDesc">Maior dividendo</option>
-              <option value="name">Nome A–Z</option>
-            </select>
-          </label>
-        </section>
-        <section class="board" id="board"></section>
-      </main>
-    </div>
+    <header class="topbar">
+      <div class="brand">
+        <img src="logo-yc.svg" alt="" />
+        <div><strong>Yuri Coimbra</strong><span>Finance</span></div>
+      </div>
+      <button type="button" id="refresh" class="icon-btn" aria-label="Atualizar">↻</button>
+    </header>
+    <label class="search"><input id="q" type="search" placeholder="Buscar ticker" autocomplete="off" /></label>
+    <nav class="tabs" aria-label="Lista">
+      <button type="button" class="on" data-tab="agro">Agro</button>
+      <button type="button" data-tab="fx">Câmbio</button>
+      <button type="button" data-tab="stocks">Ações</button>
+    </nav>
+    <p class="pulse" id="pulse">Abrindo mesa</p>
+    <main id="list" class="list"></main>
+    <nav class="dock" aria-label="Navegação">
+      <button type="button" class="on" data-tab="agro">Favoritos</button>
+      <button type="button" data-tab="agro">Agro</button>
+      <button type="button" data-tab="stocks">Ações</button>
+    </nav>
     <script src="universe.js"></script>
     <script src="app.js"></script>
   </body>
